@@ -3,7 +3,11 @@ var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
 
 // for loop to iterate through the array old way
 for (var i = 0; i < cars.length; i++) {
-    console.log(cars[i]);
+    console.log("Adding conditionals", cars[i]);
+    if (cars[i] === "Ford") {
+        console.log("exiting the loop when Ford is found");
+        break; // exit the loop when "Ford" is found
+    }
 }
 
 // forEach loop
@@ -40,3 +44,17 @@ function sumArray(arr) {
 }
 var numbers = [1, 2, 3, 4, 5];
 console.log("Sum of numbers: " + sumArray(numbers));
+
+//ES6 syntax for.
+var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+cars.forEach(car => {
+    console.log(car); // using arrow function with forEach loop
+    if (car === "Ford") {
+        console.log("exiting the loop when Ford is found");
+        return; // skip the rest of this iteration
+    }
+    // break we cannot use break in forEach loop, it will throw an error
+    // if we want to exit the loop when "Ford" is found, 
+    // we can use return statement to skip the rest of this iteration and continue with the next iteration.
+    //forEach loop does not support break statement, it will throw an error if we try to use it.
+});
